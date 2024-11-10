@@ -7,6 +7,7 @@ public class Customer {
     private double weight;
     private Workout currentWorkout;
     private int totalWorkouts;
+    private int totalExercises;
     private double totalCalories;
     private boolean isFinished;
 
@@ -17,6 +18,7 @@ public class Customer {
         this.height = height;
         this.weight = weight;
         totalWorkouts = 0;
+        totalExercises = 0;
         totalCalories = 0.0;
         isFinished = false;
     }
@@ -45,10 +47,20 @@ public class Customer {
         return this.totalWorkouts;
     }
 
+    public int getTotalExercises() {
+        return this.totalExercises;
+    }
+
     public double calcCaloriesPerWorkout() {
         return this.totalWorkouts == 0
             ? 0
             : totalCalories / totalWorkouts;
+    }
+
+    public double calcExercisesPerWorkout() {
+        return this.totalWorkouts == 0
+            ? 0
+            : (double)totalExercises / totalWorkouts;
     }
 
     public void setName(String name) {
@@ -66,6 +78,7 @@ public class Customer {
     public void finishWorkout() {
         isFinished = true;
         totalWorkouts += 1;
+        totalExercises += currentWorkout.getWorkoutLength();
         totalCalories += currentWorkout.getTotalCalories();
     }
 
@@ -84,13 +97,29 @@ public class Customer {
     public String toString() {
         String str = "";
         str += "Customer Information \n";
-        str += "==================== \n";
+        str += "================================= \n";
         str += "Name:    " + this.getName() + "\n";
-        str += String.format("Height: %6.1f inches %n", this.height);
-        str += String.format("Weight: %6.1f pounds %n", this.weight);
-        str += "Total Workouts:       " + this.totalWorkouts + "\n";
-        str += String.format("Total Calories: %10.2f calories %n", this.totalCalories);
-        str += String.format("Calories/Workout: %8.2f calories %n", this.calcCaloriesPerWorkout());
+        str += String.format("Height: %6.1f in %n", this.height);
+        str += String.format("Weight: %6.1f lbs %n", this.weight);
+        str += "--------------------------------- \n";
+        // str += "================================= \n";
+        // str += "Total Workouts:        " + this.totalWorkouts + "\n";
+        // str += "Total Exercises:       " + this.totalExercises + "\n";
+        str += String.format(
+            "Total Workouts: %7d %n", 
+            this.totalWorkouts);
+        str += String.format(
+            "Total Exercises: %6d %n", 
+            this.totalExercises);
+        str += String.format(
+            "Exercises/Workout: %6.1f  ex/w %n", 
+            this.calcExercisesPerWorkout());
+        str += String.format(
+            "Total Calories:    %7.2f kcal %n", 
+            this.totalCalories);
+        str += String.format(
+            "Calories/Workout:  %7.2f kcal %n", 
+            this.calcCaloriesPerWorkout());
         return str;
     }
 }
