@@ -36,19 +36,25 @@ public class GymMenu {
                 System.exit(choice);
                 break;
             case 1:
-                String name = JOptionPane.showInputDialog("Enter customer name");
-                input = JOptionPane.showInputDialog("Enter customer height (in inches)");
-                double height = Double.parseDouble(input);
-                input = JOptionPane.showInputDialog("Enter customer weight (in pounds)");
-                double weight = Double.parseDouble(input);
-                Customer newCustomer = new Customer(name, height, weight);
-                String message = String.format("Customer created: %n %s [%d]", newCustomer.getName(), newCustomer.getID());
-                JOptionPane.showMessageDialog(null, message);
+                createCustomer();
                 break;
             default:
                 System.err.println("Not an option");
 
                 break;
         }
+    }
+
+    public static Customer createCustomer() {
+        String input;
+        String name = JOptionPane.showInputDialog("Enter customer name");
+        input = JOptionPane.showInputDialog("Enter customer height (in inches)");
+        double height = Double.parseDouble(input);
+        input = JOptionPane.showInputDialog("Enter customer weight (in pounds)");
+        double weight = Double.parseDouble(input);
+        Customer customer = new Customer(name, height, weight);
+        String message = String.format("Customer created: %n %s [%d]", customer.getName(), customer.getID());
+        JOptionPane.showMessageDialog(null, message);
+        return customer;
     }
 }
