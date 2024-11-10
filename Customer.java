@@ -2,6 +2,7 @@
 
 public class Customer {
 
+    private int id;
     private String name;
     private double height;
     private double weight;
@@ -14,6 +15,7 @@ public class Customer {
     public Customer() {}
 
     public Customer(String name, double height, double weight) {
+        setRandomID();
         this.name = name;
         this.height = height;
         this.weight = weight;
@@ -21,6 +23,10 @@ public class Customer {
         totalExercises = 0;
         totalCalories = 0.0;
         isFinished = false;
+    }
+
+    public int getID() {
+        return this.id;
     }
 
     public String getName() {
@@ -63,6 +69,16 @@ public class Customer {
             : (double)totalExercises / totalWorkouts;
     }
 
+    private void setRandomID() {
+        if (id == 0) {
+            this.id = (int)(Math.random() * 10000 + 1);
+        }
+    }
+    
+    private void setID(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -98,9 +114,12 @@ public class Customer {
         String str = "";
         str += "Customer Information \n";
         str += "================================= \n";
-        str += "Name:    " + this.getName() + "\n";
-        str += String.format("Height: %6.1f in %n", this.height);
-        str += String.format("Weight: %6.1f lbs %n", this.weight);
+        str += String.format(
+            "Customer:  %s [%d] %n", 
+            this.name, this.id);
+        // str += "Customer:    " + this.getName() + "\n";
+        str += String.format("Height: %8.1f in %n", this.height);
+        str += String.format("Weight: %8.1f lbs %n", this.weight);
         str += "--------------------------------- \n";
         // str += "================================= \n";
         // str += "Total Workouts:        " + this.totalWorkouts + "\n";
