@@ -40,9 +40,10 @@ public class Workout {
     };
     private Exercise exercises[];
     private int counter;
+    private final int DEFAULT = 5;
 
     public Workout() {
-        this.exercises = new Exercise[5];
+        this.exercises = new Exercise[DEFAULT];
         this.counter = 0;
         createWorkout();
     }

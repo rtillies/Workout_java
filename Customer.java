@@ -99,15 +99,18 @@ public class Customer {
     }
 
     public void addWorkout() {
+        addWorkout(5);
         // if(!isFinished) finishWorkout();
-        this.currentWorkout = new Workout();
-        System.out.println(this.currentWorkout.getExerciseList());
+        // this.currentWorkout = new Workout();
+        // System.out.println(this.currentWorkout.getExerciseList());
+        // finishWorkout();
     }
 
     public void addWorkout(int count) {
         // if(!isFinished) finishWorkout();
         this.currentWorkout = new Workout(count);
         System.out.println(this.currentWorkout.getExerciseList());
+        finishWorkout();
     }
 
     public String toString() {
