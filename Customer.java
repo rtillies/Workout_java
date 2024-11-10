@@ -69,6 +69,15 @@ public class Customer {
             : (double)totalExercises / totalWorkouts;
     }
 
+    public String convertHeightToFeet() {
+        int feet = (int)this.height / 12;
+        double inches = this.height - (feet * 12);
+        String zero = inches < 10 ? "0" : "";
+        return String.format(
+            "%4d' %s%.1f\"", feet, zero, inches);
+
+    }
+
     private void setRandomID() {
         if (id == 0) {
             this.id = (int)(Math.random() * 10000 + 1);
@@ -121,7 +130,8 @@ public class Customer {
             "Customer:  %s [%d] %n", 
             this.name, this.id);
         // str += "Customer:    " + this.getName() + "\n";
-        str += String.format("Height: %8.1f in %n", this.height);
+        // str += String.format("Height: %8.1f in %n", this.height);
+        str += String.format("Height: %s %n", convertHeightToFeet());
         str += String.format("Weight: %8.1f lbs %n", this.weight);
         str += "--------------------------------- \n";
         // str += "================================= \n";
