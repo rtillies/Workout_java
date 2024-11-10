@@ -70,8 +70,15 @@ public class Customer {
     }
 
     public void addWorkout() {
-        if(!isFinished) finishWorkout();
+        // if(!isFinished) finishWorkout();
         this.currentWorkout = new Workout();
+        System.out.println(this.currentWorkout.getExerciseList());
+    }
+
+    public void addWorkout(int count) {
+        // if(!isFinished) finishWorkout();
+        this.currentWorkout = new Workout(count);
+        System.out.println(this.currentWorkout.getExerciseList());
     }
 
     public String toString() {
