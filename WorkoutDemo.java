@@ -7,6 +7,18 @@ public class WorkoutDemo {
         customer.finishWorkout();
         customer.addWorkout(8);
         customer.finishWorkout();
+        customer.addWorkout();
+        customer.finishWorkout();
+        customer.addWorkout(6);
+        customer.finishWorkout();
+        customer.addWorkout();
+        customer.finishWorkout();
+        customer.addWorkout(10);
+        customer.finishWorkout();
+        customer.addWorkout();
+        customer.finishWorkout();
+        customer.addWorkout(4);
+        customer.finishWorkout();
         // customer.addWorkout();
         // customer.finishWorkout();
         // Workout workout = new Workout();
