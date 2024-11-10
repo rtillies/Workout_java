@@ -54,6 +54,10 @@ public class Workout {
         addExercise(e);
     }
 
+    public int getWorkoutLength() {
+        return this.exercises.length;
+    }
+
     public double getTotalCalories() {
         double total = 0.0;
         for (Exercise e : exercises) {
@@ -63,7 +67,7 @@ public class Workout {
     }
 
     public String getExerciseList() {
-        String list = "Exercise List";
+        String list = "Exercise List \n";
         for (Exercise e : exercises) {
             list += e.getDescription() + "\n";
         }
