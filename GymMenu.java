@@ -35,8 +35,11 @@ public class GymMenu {
                 System.out.println("Thanks for using the program!");
                 System.exit(choice);
                 break;
-            case 1:
-                createCustomer();
+            case 1: // create new customer
+                Customer c = createCustomer();
+                System.out.println(c);
+                break;
+            case 2: // find customer
                 break;
             default:
                 System.err.println("Not an option");
@@ -57,4 +60,22 @@ public class GymMenu {
         JOptionPane.showMessageDialog(null, message);
         return customer;
     }
+    
+    public static Customer findCustomerByID(int id) {
+        String input;
+        // String name = JOptionPane.showInputDialog(
+            // "Enter customer ID");
+        // input = JOptionPane.showInputDialog(
+        //     "Enter customer ID");
+        // double height = Double.parseDouble(input);
+        // int id = Integer.parseInt(input);
+        // input = JOptionPane.showInputDialog("Enter customer weight (in pounds)");
+        // double weight = Double.parseDouble(input);
+        // Customer customer = new Customer(name, height, weight);
+        Customer customer = new Customer();
+        // String message = String.format("Customer created: %n %s [%d]", customer.getName(), customer.getID());
+        // JOptionPane.showMessageDialog(null, message);
+        return customer;
+    }
+
 }
